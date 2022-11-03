@@ -1,0 +1,36 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/cmslab/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/cmslab/catkin_ws/src/A-LOAM/include/**",
+        "/home/cmslab/catkin_ws/src/ros_canopen/ars_40X/include/**",
+        "/home/cmslab/catkin_ws/src/VINS-Fusion/camera_models/include/**",
+        "/home/cmslab/catkin_ws/src/ros_canopen/canopen_402/include/**",
+        "/home/cmslab/catkin_ws/src/ros_canopen/canopen_chain_node/include/**",
+        "/home/cmslab/catkin_ws/src/ros_canopen/canopen_master/include/**",
+        "/home/cmslab/catkin_ws/src/ros_canopen/canopen_motor_node/include/**",
+        "/home/cmslab/catkin_ws/src/jsk_visualization/jsk_interactive_markers/jsk_interactive_marker/include/**",
+        "/home/cmslab/catkin_ws/src/QT-LiDAR-Object-Detection/lidar_detect/include/**",
+        "/home/cmslab/catkin_ws/src/LIO-SAM/include/**",
+        "/home/cmslab/catkin_ws/src/ouster_flir_calibration/include/**",
+        "/home/cmslab/catkin_ws/src/pcl_cpp_tutorial/include/**",
+        "/home/cmslab/catkin_ws/src/socket_can/include/**",
+        "/home/cmslab/catkin_ws/src/ros_canopen/socketcan_bridge/include/**",
+        "/home/cmslab/catkin_ws/src/ros_canopen/socketcan_interface/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

@@ -1,0 +1,8 @@
+<launch>
+
+    <node pkg="ouster_flir_calibration" type="result" name="result" output="screen" />
+    <node pkg="ouster_flir_calibration" type="dynamic_reconfigure" name="dynamic_reconfigure" output="screen" />
+    <rosparam file="$(find ouster_flir_calibration)/config/params.yaml" command="load" />
+  <!-- Run rviz 
+    <node name="rviz" pkg="rviz" type="rviz" args="$(find ouster_flir_calibration)/config/ouster_flir.rviz" />-->
+</launch>

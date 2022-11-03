@@ -1,0 +1,23 @@
+ouster_flir_calibration: 
+  # Topics
+  pointCloudTopic: "/os_cloud_node/points"       
+  #imageTopic: "/camera_array/cam0/image_raw"    
+  imageTopic: "/denoise/out"   
+
+  # Saved File Path
+  saveFLAG: false # DO NOT CHANGE
+  saveFLAG_XYZIR: true
+  saveFILEDirectory: "/home/cmslab/catkin_ws/src/ouster_flir_calibration/DATA/"  
+
+  # Camera Calibration
+  K:  [2340.375977  ,0.0          ,745.556014
+      ,0.0          ,2351.579554  ,577.711325
+      ,0.0          ,0.0          ,1.0       ]
+  D:  [-0.137154    ,0.628614     ,0.004937    ,0.001995     ,0.0]
+  P:  [2340.375977  ,0.0          ,746.895772  ,0.0 
+      ,0.0          ,2338.411865  ,580.155483  ,0.0 
+      ,0.0          ,0.0          ,1.0         ,0.0]
+
+  # LiDAR - Camera Calibration
+  r_cl: [ 1.271240404800586,    -1.289134393437021,   1.176793387954375]
+  t_cl: [-0.004713171370312214,  0.1154169748482303, -0.1637210192171086]

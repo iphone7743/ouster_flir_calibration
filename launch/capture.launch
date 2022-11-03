@@ -1,0 +1,6 @@
+<launch>
+
+    <node pkg="ouster_flir_calibration" type="capture" name="capture" output="screen" />
+    <rosparam file="$(find ouster_flir_calibration)/config/params.yaml" command="load" />
+
+</launch>
