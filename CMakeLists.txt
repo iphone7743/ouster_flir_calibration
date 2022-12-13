@@ -34,19 +34,23 @@ include_directories(
   ${OpenCV_INCLUDE_DIRS}
 )
 
-add_executable(capture src/main_capture.cpp)
-target_link_libraries(capture ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-
-add_executable(calibrate src/main_calibrate.cpp)
-target_link_libraries(calibrate ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-add_dependencies(calibrate ${PROJECT_NAME}_gencfg)
-
 add_executable(dynamic_reconfigure src/main_dyn.cpp)
 target_link_libraries(dynamic_reconfigure ${catkin_LIBRARIES})
 add_dependencies(dynamic_reconfigure ${PROJECT_NAME}_gencfg)
 
-add_executable(extract_points src/extract_points.cpp)
-target_link_libraries(extract_points ${catkin_LIBRARIES} ${OpenCV_LIBS})
+add_executable(capture src/main_capture.cpp)
+target_link_libraries(capture ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+
+add_executable(extract_lidar_points src/main_extract_lidar_points.cpp)
+target_link_libraries(extract_lidar_points ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+add_dependencies(extract_lidar_points ${PROJECT_NAME}_gencfg)
+
+add_executable(extract_image_points src/main_extract_image_points.cpp)
+target_link_libraries(extract_image_points ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+
+add_executable(calibrate src/main_calibrate.cpp)
+target_link_libraries(calibrate ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+add_dependencies(calibrate ${PROJECT_NAME}_gencfg)
 
 add_executable(result src/main_result.cpp)
 target_link_libraries(result ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})

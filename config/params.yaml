@@ -1,15 +1,20 @@
 ouster_flir_calibration: 
-  # Topics
+  # topics
   pointCloudTopic: "/os_cloud_node/points"       
-  #imageTopic: "/camera_array/cam0/image_raw"    
-  imageTopic: "/denoise/out"   
+  imageTopic: "/camera_array/cam0/image_raw"    
 
-  # Saved File Path
-  saveFLAG: false # DO NOT CHANGE
+  # saved file path
+  saveFLAG: false  # DO NOT CHANGE
   saveFLAG_XYZIR: true
   saveFILEDirectory: "/home/cmslab/catkin_ws/src/ouster_flir_calibration/DATA/"  
 
-  # Camera Calibration
+  # extract lidar points
+  extractNEXT: false  # DO NOT CHANGE
+
+  # filter limit for 'calibrate.launch' - xlim_low[m], xlim_high[m], ylim_low[m], ylim_high[m], zlim_low[m], zlim_high[m]
+  filter_limit: [2.6, 4.0, -0.7, 0.8, -1.0, 0.35]
+
+  # camera calibration
   K:  [2340.375977  ,0.0          ,745.556014
       ,0.0          ,2351.579554  ,577.711325
       ,0.0          ,0.0          ,1.0       ]
@@ -18,6 +23,6 @@ ouster_flir_calibration:
       ,0.0          ,2338.411865  ,580.155483  ,0.0 
       ,0.0          ,0.0          ,1.0         ,0.0]
 
-  # LiDAR - Camera Calibration
+  # lidar-camera calibration
   r_cl: [ 1.271240404800586,    -1.289134393437021,   1.176793387954375]
   t_cl: [-0.004713171370312214,  0.1154169748482303, -0.1637210192171086]

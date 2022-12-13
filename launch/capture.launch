@@ -2,5 +2,5 @@
 
     <node pkg="ouster_flir_calibration" type="capture" name="capture" output="screen" />
     <rosparam file="$(find ouster_flir_calibration)/config/params.yaml" command="load" />
-
+    <node name="ouster_flir_calibration_capture_rviz" pkg="rviz" type="rviz" required="true" args="-d $(find ouster_flir_calibration)/config/capture.rviz"/> 
 </launch>

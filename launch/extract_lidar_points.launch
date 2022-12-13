@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="ouster_flir_calibration" type="extract_lidar_points" name="extract_lidar_points" output="screen" />
+    <node pkg="ouster_flir_calibration" type="dynamic_reconfigure" name="dynamic_reconfigure" output="screen" />
+    <rosparam file="$(find ouster_flir_calibration)/config/params.yaml" command="load" />
+    <node name="ouster_flir_calibration_extract_lidar_points_rviz" pkg="rviz" type="rviz" required="true" args="-d $(find ouster_flir_calibration)/config/extract_lidar_points.rviz"/> 
+</launch>

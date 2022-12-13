@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="ouster_flir_calibration" type="extract_image_points" name="extract_image_points" output="screen" />
+    <rosparam file="$(find ouster_flir_calibration)/config/params.yaml" command="load" />
+</launch>

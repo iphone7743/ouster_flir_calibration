@@ -28,7 +28,7 @@ class CAPTURE
 private: 
     ros::NodeHandle nh;
 
-    // topics from params.yaml
+    // params.yaml
     std::string pointcloudTopic;
     std::string imageTopic;
     std::string saveFILEDirectory;
@@ -44,6 +44,7 @@ private:
     std::string filename_cloud;
     std::string filename_cloud_XYZIR;
     std::string filename_image;
+    std::string filename_image_rectify;
     bool SAVE_FLAG_ROS = false;
     bool SAVE_FLAG_XYZIR = true;
     int count          = 1;
@@ -114,24 +115,29 @@ public :
         std::string count_str = std::to_string(count);
         std::string count_str_padded = std::string(NUM_ZEROS - count_str.length(),'0') + count_str;
 
+        // Save image
+        filename_image = saveFILEDirectory + "2_CAPTURE/IMG/" + "CALIB_image" + count_str_padded + ".png";
+        cv::imwrite(filename_image, image);
+        ROS_INFO("Success to save IMG %04d file.", count);
+
         // Rectify image
         cv::Matx33d K( K_coeff[0], K_coeff[1], K_coeff[2], K_coeff[3], K_coeff[4], K_coeff[5], K_coeff[6], K_coeff[7], K_coeff[8]);
         cv::undistort(image, image_rectify, K, dist_coeff);
 
-        // Save image
-        filename_image = saveFILEDirectory + "CALIB_image" + count_str_padded + ".png";
-        cv::imwrite(filename_image, image_rectify);
-        ROS_INFO("Success to save IMG %04d file.", count);
+        // Save rectified image
+        filename_image_rectify = saveFILEDirectory + "2_CAPTURE/IMG_RECTIFY/" + "CALIB_image_rectify" + count_str_padded + ".png";
+        cv::imwrite(filename_image_rectify, image_rectify);
+        ROS_INFO("Success to save IMG_RECTIFY %04d file.", count);
 
         // Save cloud_XYZI
-        filename_cloud = saveFILEDirectory + "CALIB_cloud_XYZI" + count_str_padded + ".pcd";
+        filename_cloud = saveFILEDirectory + "2_CAPTURE/XYZI/" + "CALIB_cloud_XYZI" + count_str_padded + ".pcd";
         pcl::io::savePCDFileASCII(filename_cloud, cloud);
         ROS_INFO("Success to save PCD_XYZI %04d file.", count);
 
         if(SAVE_FLAG_XYZIR)
         {
             // Save cloud_XYZIR
-            filename_cloud_XYZIR = saveFILEDirectory + "CALIB_cloud_XYZIR" + count_str_padded + ".pcd";
+            filename_cloud_XYZIR = saveFILEDirectory + "2_CAPTURE/XYZIR/" + "CALIB_cloud_XYZIR" + count_str_padded + ".pcd";
             pcl::io::savePCDFileASCII(filename_cloud_XYZIR, cloud_XYZIR);
             ROS_INFO("Success to save PCD_XYZIR %04d file.", count);
         }
